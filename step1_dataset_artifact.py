@@ -3,7 +3,7 @@ from clearml import Task, Dataset
 
 # Initialize the ClearML Task
 task = Task.init(
-    project_name="examples",
+    project_name="Pipeline demo",
     task_name="Step 1 - Load Uncompressed Pest Image Dataset"
 )
 
