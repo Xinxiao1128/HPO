@@ -28,19 +28,19 @@ params = task.connect({
     'processed_dataset_id': STEP2_TASK_ID,
     'base_train_task_id': STEP3_TASK_ID,
     'test_queue': 'pipeline',
-    'num_trials': 3,
+    'num_trials': 5,
     'time_limit_minutes': 30
 })
 
 # agent
-# if __name__ == "__main__" and params.get("test_queue") and Task.running_locally():
-    # task.execute_remotely(queue_name=params["test_queue"])
+if __name__ == "__main__" and params.get("test_queue") and Task.running_locally():
+    task.execute_remotely(queue_name=params["test_queue"])
     
 hyper_parameters = [
     DiscreteParameterRange('General/learning_rate', values=[0.0001, 0.0005, 0.001, 0.005]),
     DiscreteParameterRange('General/batch_size', values=[16, 32, 64]),
     DiscreteParameterRange('General/weight_decay', values=[1e-6, 1e-5, 1e-4]),
-    DiscreteParameterRange('General/num_epochs', values=[3, 5, 10]),
+    DiscreteParameterRange('General/num_epochs', values=[2, 3, 5]),
     DiscreteParameterRange('General/dropout_rate', values=[0.3, 0.4, 0.5, 0.6])
 ]
 
@@ -111,3 +111,4 @@ if results:
     task.upload_artifact("best_hpo_task_id", artifact_object=upload_task.id)
 
 logger.info("✅ Step 4 - HPO completed.")
+task.mark_completed()  # ✅ 加上这一行
