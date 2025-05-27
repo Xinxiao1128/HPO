@@ -20,7 +20,7 @@ params = task.connect({
     'batch_size': 16,
     'weight_decay': 1e-5,
     'dropout_rate': 0.5,
-    'num_epochs': 3,
+    'num_epochs': 10,
     'device': 'cuda' if torch.cuda.is_available() else 'cpu'
 })
 
