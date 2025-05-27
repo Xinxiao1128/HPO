@@ -40,7 +40,7 @@ hyper_parameters = [
     DiscreteParameterRange('General/learning_rate', values=[0.0001, 0.0005, 0.001, 0.005]),
     DiscreteParameterRange('General/batch_size', values=[16, 32, 64]),
     DiscreteParameterRange('General/weight_decay', values=[1e-6, 1e-5, 1e-4]),
-    DiscreteParameterRange('General/num_epochs', values=[2, 3, 5]),
+    DiscreteParameterRange('General/num_epochs', values=[3, 5, 10]),
     DiscreteParameterRange('General/dropout_rate', values=[0.3, 0.4, 0.5, 0.6])
 ]
 
